@@ -52,7 +52,7 @@ jobs:
       - name: Tag Docker image
         run: |
           docker tag $ECR_REPOSITORY:$IMAGE_TAG \
-            123456789012.dkr.ecr.${AWS_REGION}.amazonaws.com/$ECR_REPOSITORY:$IMAGE_TAG
+            382352119835.dkr.ecr.us-east-1.amazonaws.com/my-ecr/private-repo:$IMAGE_TAG
 
       # Step 6 - Push Docker image to ECR
       - name: Push Docker image

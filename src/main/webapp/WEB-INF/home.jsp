@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home page </title>
+<title>Home page  with k8s</title>
 <style>  
 h3{
   font-family: Calibri; 

@@ -1,0 +1,33 @@
+name: Terraform Targeted Destroy
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource_target:
+        description: 'Terraform resource to destroy (e.g., aws_s3_bucket.my_bucket)'
+        required: true
+
+jobs:
+  destroy:
+    name: Destroy Resource
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: us-east-1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.7.5
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Targeted Destroy
+        run: terraform destroy -target=${{ github.event.inputs.resource_target }} -auto-approve

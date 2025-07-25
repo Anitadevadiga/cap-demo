@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home page  with   title</title>
+<title>Home page  with   </title>
 <style>  
 h3{
   font-family: Calibri; 
